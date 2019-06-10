@@ -1,0 +1,20 @@
+{{template "header" .}}
+<div id="content" class="container">
+
+  <div>
+    <h2>Lorem ipsum</h2>
+    <p>Group 1</p>
+
+  </div>
+
+  <form method="post" action="/submitComment">
+    <label>Token: &nbsp;</label><br/>
+    <input type="text" name="value1" length="100"/>
+    <br/>
+    <label>Comment: &nbsp;</label><br/>
+    <textarea cols="50" rows="5" name="comment" ></textarea>
+    <br/>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+{{template "footer"}}

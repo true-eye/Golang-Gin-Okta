@@ -1,0 +1,60 @@
+{{define "header"}}
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+  <style>
+    .selected-menu {
+      background-color: gray;
+    }
+    .selected-menu a {
+      color: white !important;
+    }
+  </style>
+
+  <title>Peak Cloud Self Server Portal</title>
+</head>
+<body id="samples">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+    {{if eq .SelectedMenu "home"}}
+      <li class="selected-menu"><a href="/">Home</a></li>
+    {{else}}
+      <li><a href="/">Home</a></li>
+    {{end}}
+    {{if eq .SelectedMenu "group1"}}
+      <li class="selected-menu"><a href="/endpoint1">Group 1</a></li>
+    {{else}}
+      <li><a href="/endpoint1">Group 1</a></li>
+    {{end}}
+    {{if eq .SelectedMenu "group2"}}
+      <li class="selected-menu"><a href="/endpoint2">Group 2</a></li>
+    {{else}}
+      <li><a href="/endpoint2">Group 2</a></li>
+    {{end}}
+    {{if .IsAuthenticated}}
+      {{if eq .SelectedMenu "profile"}}
+        <li class="selected-menu"><a id="profile-button" href="/profile">My Profile</a></li>
+      {{else}}
+        <li><a id="profile-button" href="/profile">My Profile</a></li>
+      {{end}}
+    {{end}}
+    </ul>
+  {{if .IsAuthenticated}}
+    <form method="post" action="/logout" class="navbar-form navbar-right">
+      <button id="logout-button" type="submit" class="btn btn-danger">Logout</button>
+    </form>
+  {{end}}
+  </div>
+</nav>
+{{end}}

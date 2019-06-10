@@ -1,0 +1,30 @@
+server:
+  version: v0.1
+  addr: :8080
+  mode: debug
+  static_dir: ./public
+  view_dir: ./templates
+  log_dir: ./log
+  upload_dir: ./storage
+  max_multipart_memory: 10
+
+database:
+  dialect: mysql
+  datasource: root:@tcp(localhost:3306)/gin?charset=utf8mb4&timeout=10s&parseTime=True
+  dir: sql
+  table: migrations
+  max_idle_conns: 2
+  max_open_conns: 16
+
+okta:
+  client_id: "0oafknh6rqVHFuVHA356"
+  client_secret: "ewW6JU2WN0jP1j5nQVd-SBWF88mwYRhE2k9hE7E3"
+  issuer: "https://dev-907813.okta.com/oauth2/default"
+  state: "ApplicationState"
+  apiurl: "https://dev-907813.okta.com/api/v1"
+  apitoken: "00vEW68cH87BLCbnYb18UyvVe1v4CAbwUvLMnaMd2L"
+
+endpointacl:
+  acl:
+    good: [endpoint1]
+    good2: [endpoint2]
